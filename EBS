@@ -1,118 +1,127 @@
-✅ Amazon EBS – Exam-Oriented Cheat Sheet
-✅ 1. When to Use EBS
-Scenario Keywords:
+# ✅ Amazon EBS – Exam-Oriented Cheat Sheet
 
-Block storage for EC2
+---
 
-Persistent storage for applications or databases
+## ✅ 1. When to Use EBS
 
-Needs low-latency storage with high performance
+**Scenario Keywords**  
+- Block storage for EC2  
+- Persistent storage for applications or databases  
+- Needs low-latency storage with high performance  
+- Data must persist after EC2 stop/start  
 
-Data must persist after EC2 stop/start
+**Use Case**  
+Use **EBS** when you need **block-level storage** attached to EC2 instances.
 
-Use Case:
-Use EBS when you need block-level storage attached to EC2 instances.
+---
 
-✅ 2. Volume Types and Performance Mapping
-EBS Volume Type	Scenario	Key Metrics	Use Case
-gp3 (General Purpose SSD)	Default, cost-effective SSD	3,000 IOPS baseline, up to 16,000 IOPS	Balanced workloads, boot volumes
-io2/io2 Block Express	High performance, critical DBs	Up to 256,000 IOPS, 99.999% durability	OLTP, SAP HANA, latency-sensitive
-st1 (Throughput HDD)	Large, sequential workloads	500 MB/s throughput	Big data, log processing
-sc1 (Cold HDD)	Infrequent access	Low throughput, lowest cost	Archival, cold data
-gp2 (legacy)	Replaced by gp3	Scales with size	Boot volumes, general workloads
+## ✅ 2. Volume Types and Performance Mapping
 
-Exam Signal:
-If IOPS, throughput, or cost is emphasized → match volume type accordingly.
+| EBS Volume Type      | Scenario                      | Key Metrics                          | Use Case                                  |
+|----------------------|-------------------------------|---------------------------------------|--------------------------------------------|
+| `gp3` (General SSD)  | Default, cost-effective SSD   | 3,000 IOPS baseline, up to 16,000     | Balanced workloads, boot volumes           |
+| `io2` / `io2 Block Express` | High performance, critical DBs | Up to 256,000 IOPS, 99.999% durability | OLTP, SAP HANA, latency-sensitive apps     |
+| `st1` (Throughput HDD) | Large, sequential workloads | 500 MB/s throughput                   | Big data, log processing                   |
+| `sc1` (Cold HDD)     | Infrequent access             | Low throughput, lowest cost           | Archival, cold data                        |
+| `gp2` (Legacy SSD)   | Replaced by `gp3`             | Scales with volume size               | Boot volumes, general workloads            |
 
-✅ 3. Snapshots (Backups & DR)
-Scenario Keywords:
+**📌 Exam Signal**  
+If **IOPS**, **throughput**, or **cost** is emphasized → match the volume type accordingly.
 
-Backup EBS volume
+---
 
-Copy data to another region
+## ✅ 3. Snapshots (Backups & DR)
 
-Automate backup
+**Scenario Keywords**  
+- Backup EBS volume  
+- Copy data to another region  
+- Automate backup  
+- Restore volume from backup  
 
-Restore volume from backup
+**Use Case**  
+Use **EBS Snapshots** (stored in **S3**) for point-in-time backups and cross-region **disaster recovery**.
 
-Use Case:
-Use EBS Snapshots, stored in S3, for point-in-time backup and cross-region disaster recovery.
+**📝 Exam Tip**  
+- Snapshots are **incremental** after the first one  
+- Use **Lifecycle Manager** to automate snapshot creation
 
-Exam Tip:
+---
 
-Snapshots are incremental after the first one.
+## ✅ 4. Data Durability & Availability
 
-Use Lifecycle Manager to automate snapshot creation.
+- EBS volumes are designed for **99.999% availability**
+- **Replicated within the same Availability Zone (AZ)**
 
-✅ 4. Data Durability & Availability
-Key Point:
-EBS volumes are designed for 99.999% availability and are replicated within the same AZ.
+**📌 Exam Signal**  
+If **multi-AZ durability** is needed → **EBS is not multi-AZ by default**.  
+Use **EFS** or **S3** for multi-AZ storage, or replicate snapshots manually.
 
-Exam Signal:
-If multi-AZ durability is required → EBS is not multi-AZ by default. You must manually replicate snapshots or use EFS/S3 for multi-AZ storage.
+---
 
-✅ 5. Resizing and Modifying Volumes
-Scenario Keywords:
+## ✅ 5. Resizing and Modifying Volumes
 
-Increase volume size or IOPS
+**Scenario Keywords**  
+- Increase volume size or IOPS  
+- No downtime  
+- Resize without stopping instance  
 
-No downtime
+**Use Case**  
+EBS volumes support **online resizing** (modify type, size, or IOPS **without downtime**).
 
-Resize without stopping instance
+---
 
-Use Case:
-EBS volumes support online resizing (modify volume type, size, IOPS without downtime).
+## ✅ 6. Encryption
 
-✅ 6. Encryption
-Scenario Keywords:
+**Scenario Keywords**  
+- Encrypt data at rest  
+- Use KMS-managed keys  
+- Compliance requirement  
 
-Encrypt data at rest
+**Use Case**  
+Enable EBS encryption using **AWS KMS**. This encrypts:  
+- Data at rest  
+- Snapshots  
+- Volumes created from snapshots
 
-Use KMS-managed keys
+---
 
-Compliance requirement
+## ✅ 7. Performance Optimization
 
-Use Case:
-Enable EBS encryption using AWS KMS. This encrypts:
+**Scenario Keywords**  
+- EC2 is slow  
+- High disk latency  
+- Not meeting IOPS  
 
-Data at rest
+**Tips**
+- Use **Provisioned IOPS (io2)** for consistent performance  
+- Enable **Multi-Attach** (`io1`/`io2`) for cluster-aware applications  
+- Choose **EBS-optimized EC2 instances**
 
-Snapshots
+---
 
-Volumes created from snapshots
+## ✅ 8. Use with Other AWS Services
 
-✅ 7. Performance Optimization
-Scenario Keywords:
+- **Auto Scaling Groups** → Use launch templates with EBS root volumes  
+- **CloudFormation** → Automate EBS provisioning  
+- **AWS Backup / DMS / Lambda** → Interact with EBS snapshots programmatically
 
-EC2 is slow
+---
 
-High disk latency
+## 🧠 Quick EBS Tips for Exam
 
-Not meeting IOPS
+| Feature             | Tip                                                                 |
+|---------------------|----------------------------------------------------------------------|
+| `gp3`               | Best general-purpose SSD (customizable IOPS & throughput)            |
+| `io2`               | For critical apps needing high durability and performance            |
+| `st1` / `sc1`       | Use for large, sequential, cost-sensitive workloads                  |
+| Snapshots           | Stored in S3, **incremental**, supports **cross-region** copy       |
+| Encryption          | Use **KMS**; encrypts data, snapshots, and restored volumes          |
+| Performance tuning  | Resize volumes, switch to `io2` for higher IOPS                      |
+| Durability          | Single AZ only – manually replicate for multi-AZ                     |
+| Multi-Attach        | Only supported with `io1` and `io2` (for cluster-aware FS)           |
+| Auto backup         | Use **Data Lifecycle Manager** to automate snapshots                 |
 
-Tips:
+---
 
-Use Provisioned IOPS (io2) for consistent performance
+📚 **Study Smart! Match keywords in exam questions with the right EBS feature to score quickly.**
 
-Enable Multi-Attach (io1/io2) to allow multiple EC2 instances to attach same volume (for clustered apps)
-
-Choose the right EBS-optimized EC2 instance type
-
-✅ 8. Use with Other AWS Services
-Auto Scaling Groups → Use launch templates with EBS root volumes
-
-CloudFormation → Automate EBS provisioning
-
-DMS, Backup, or Lambda → Can interact with EBS snapshots programmatically
-
-🧠 Quick EBS Tips for Exam
-Feature	Tip
-gp3	Best general-purpose SSD (default, customizable throughput and IOPS)
-io2	For critical apps needing high durability & IOPS
-st1/sc1	For cost-effective, sequential-access workloads
-Snapshots	Stored in S3, incremental, support cross-region
-Encryption	Use KMS; encrypts data, backups, and volumes
-Performance tuning	Resize volumes, switch to io2 for higher IOPS
-Durability	Single AZ; replicate manually for multi-AZ needs
-Multi-Attach	Only io1/io2 support it (cluster-aware FS)
-Auto backup	Use Data Lifecycle Manager
