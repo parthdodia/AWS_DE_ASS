@@ -104,4 +104,6 @@ Crawlers connect to S3 or other sources, infer schema (CSV, JSON, Parquet, etc.)
 
 ---
 
-Let me know if you'd like the markdown file exported, or if you're ready for the next cheat sheet (Athena, Lambda, Kinesis, etc.)!
+📚 **Exam Focus:**  
+Watch for terms like **serverless ETL**, **Glue Crawlers**, **Glue Data Catalog integration with Athena/Redshift**, **Python Shell jobs**, and **streaming ETL** with Kafka or Kinesis. Know **job types** and **cost optimization** tips such as using **Python Shell** for light workloads and **Athena + Lambda** alternatives. Recognize **DataBrew** as the GUI tool for non-coders. Understanding **partition discovery**, **job bookmarking**, and **Lake Formation governance** can also be tested.
+
