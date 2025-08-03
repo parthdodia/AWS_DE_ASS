@@ -108,5 +108,4 @@ Use Athena when you want to run SQL queries directly on data in S3 without setti
 ---
 
 📚 **Exam Focus:**  
-Focus on Athena’s **serverless nature** and pay-per-TB pricing. Know how **partitioning** and **columnar formats (Parquet/ORC)** reduce costs. Understand **CTAS** usage for optimized tables, **workgroups** for cost control, and **federated queries** to access external data sources. Remember **Glue Data Catalog integration** is key for schema management. Be aware of **UDFs via Lambda** and **Apache Iceberg** for advanced table features like ACID compliance and time travel. Finally, watch for **query result reuse** and **partition pruning** as exam keywords.
-
+Look for terms such as “running SQL without servers,” “directly analyzing data in S3,” “cost based on scanned data,” “queries across multiple data sources,” or “on-the-fly schema interpretation” — these typically indicate Amazon Athena as the best fit.
