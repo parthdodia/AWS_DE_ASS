@@ -1,4 +1,6 @@
-# Amazon EBS (Elastic Block Storage)
+# 📘 Amazon EBS (Elastic Block Storage)
+
+Amazon Elastic Block Store (EBS) provides **persistent, high-performance block storage volumes** for use with EC2 instances. EBS volumes behave like raw, unformatted block devices, ideal for databases, file systems, and workloads needing low-latency storage that persists independently of EC2 lifecycle.
 
 ---
 
@@ -123,5 +125,7 @@ Enable EBS encryption using **AWS KMS**. This encrypts:
 
 ---
 
-📚 **Study Smart! Match keywords in exam questions with the right EBS feature to score quickly.**
+📚 **Exam Focus:**  
+Focus on **EBS volume types** matching workload needs: gp3 for general use, io2/io2 Block Express for high-performance critical DBs, and HDD types (st1/sc1) for throughput or cost optimization. Remember **snapshots** are incremental and stored in S3. Know that EBS is **single AZ** storage and multi-AZ requires manual replication. Understand **online volume resizing** without downtime and **encryption with AWS KMS**. Watch for **Multi-Attach** feature on io1/io2 for clustered applications. Also, automation via **Lifecycle Manager** and **CloudFormation** is commonly tested.
+
 
