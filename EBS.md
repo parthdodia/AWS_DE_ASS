@@ -126,6 +126,4 @@ Enable EBS encryption using **AWS KMS**. This encrypts:
 ---
 
 📚 **Exam Focus:**  
-Focus on **EBS volume types** matching workload needs: gp3 for general use, io2/io2 Block Express for high-performance critical DBs, and HDD types (st1/sc1) for throughput or cost optimization. Remember **snapshots** are incremental and stored in S3. Know that EBS is **single AZ** storage and multi-AZ requires manual replication. Understand **online volume resizing** without downtime and **encryption with AWS KMS**. Watch for **Multi-Attach** feature on io1/io2 for clustered applications. Also, automation via **Lifecycle Manager** and **CloudFormation** is commonly tested.
-
-
+Focus on phrases like “block-level storage for EC2,” “persistent volumes surviving instance stops,” “low-latency disk performance,” or “IOPS and throughput tuning” — these are strong indicators that Amazon EBS is the correct choice.
