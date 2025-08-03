@@ -1,4 +1,4 @@
-# ✅ Amazon EBS – Exam-Oriented Cheat Sheet
+# Amazon EBS (Elastic Block Storage)
 
 ---
 
