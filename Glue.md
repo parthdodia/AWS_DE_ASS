@@ -104,6 +104,20 @@ Crawlers connect to S3 or other sources, infer schema (CSV, JSON, Parquet, etc.)
 
 ---
 
-📚 **Exam Focus:**  
-Watch for terms like **serverless ETL**, **Glue Crawlers**, **Glue Data Catalog integration with Athena/Redshift**, **Python Shell jobs**, and **streaming ETL** with Kafka or Kinesis. Know **job types** and **cost optimization** tips such as using **Python Shell** for light workloads and **Athena + Lambda** alternatives. Recognize **DataBrew** as the GUI tool for non-coders. Understanding **partition discovery**, **job bookmarking**, and **Lake Formation governance** can also be tested.
+## 🧩 Common Scenarios for AWS Glue
 
+| Scenario                   | Description                                                      |
+|----------------------------|------------------------------------------------------------------|
+| **Building ETL pipelines** | Extract, transform, and load data from multiple sources into data lakes or warehouses (S3, Redshift) |
+| **Schema discovery & cataloging** | Automatically crawl data sources to infer schemas and update metadata for query engines like Athena |
+| **Serverless data preparation** | Prepare and transform data without managing infrastructure for easy scaling and cost-efficiency |
+| **Data lake ingestion**    | Ingest large volumes of structured and semi-structured data for analytics |
+| **Streaming ETL**          | Process real-time streaming data from Kinesis or Kafka with Glue streaming jobs |
+| **Data format conversion** | Convert CSV, JSON, or other formats into optimized columnar formats like Parquet or ORC |
+| **Job orchestration**      | Manage complex ETL workflows with triggers and job dependencies |
+| **Ad-hoc data wrangling** | Use Glue Studio or DataBrew for visual data cleaning and transformation |
+| **Integration with ML**    | Prepare and clean data for machine learning pipelines |
+
+---
+📚 **Exam Focus:**  
+Watch for keywords like “serverless ETL,” “automated schema discovery,” “data catalog integration,” “transform and load workflows,” or “no infrastructure to manage” — these usually point to AWS Glue as the right solution.
