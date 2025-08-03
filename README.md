@@ -1,2 +1,2 @@
-# AWS_DE_ASS
+# AWS Data Engineer Associate Certification
 Notes
