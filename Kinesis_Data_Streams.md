@@ -88,7 +88,7 @@ Use Kinesis Data Streams when you need to build custom streaming apps that requi
 
 ---
 
-## 🧩 Common Scenarios for Amazon Kinesis Data Streams
+## 🧩 Common Scenarios 
 
 | Scenario                     | Description                                                                                          |
 |------------------------------|------------------------------------------------------------------------------------------------------|
@@ -105,6 +105,20 @@ Use Kinesis Data Streams when you need to build custom streaming apps that requi
 
 ---
 
+## 📊 Data Streams vs Firehose
+
+| Scenario / Requirement                         | Best Choice                   | Reason / Explanation                                            |
+|------------------------------------------------|------------------------------|----------------------------------------------------------------|
+| Need fine-grained, custom stream processing     | Kinesis Data Streams          | Allows building custom applications, complex event processing, and ordered processing per shard |
+| Simple streaming pipeline to S3, Redshift, or OpenSearch | Kinesis Data Firehose        | Fully managed, no infrastructure management, easy setup       |
+| Requirement for data transformation or format conversion during ingestion | Kinesis Data Firehose        | Supports Lambda-based transformation and JSON → Parquet/ORC conversion |
+| Strict ordering of records per key               | Kinesis Data Streams          | Supports ordering guarantees within shards                     |
+| Multiple independent consumers reading same data | Kinesis Data Streams + Enhanced Fan-Out | Enables dedicated throughput per consumer                       |
+| Replaying or processing data multiple times       | Kinesis Data Streams          | Retention up to 7 days allows replay                            |
+| Minimal operational overhead, fully managed delivery | Kinesis Data Firehose        | No shard management, automatic scaling and buffering           |
+| Need for real-time analytics with SQL on streams | Use Kinesis Data Streams + Kinesis Data Analytics | Enables real-time SQL queries over streaming data              |
+
+---
 ## 📚 Exam Focus
 
 Look for phrases such as **“real-time data ingestion,” “streaming with ordered records,” “shard throughput limits,” “multiple consumer scaling,”** or **“serverless event processing”** — these typically indicate **Amazon Kinesis Data Streams** is the intended service.
