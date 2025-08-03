@@ -1,6 +1,5 @@
 # 📘 AWS Backup – Centralized Backup Service
-
-**What it is**  
+ 
 AWS Backup is a **fully managed, policy-based backup service** that helps **centralize and automate backups** across AWS services and some on-premises systems. It simplifies **compliance**, automates **scheduling**, and supports **disaster recovery** and **auditing** at scale.
 
 ---
